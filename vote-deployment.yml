@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,22 +5,20 @@ metadata:
   namespace: vote
   labels:
     name: vote-deployment
-    app: demo-voting-app
+    app: vote-deployment 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: voting-app-pod
-      app: demo-voting-app
+      app: vote-deployment
   template:
     metadata:
-      name: voting-app-pod
       labels:
-        name: voting-app-pod
-        app: demo-voting-app
+        app: vote-deployment
     spec:
-    containers:
-      - name: voting-app-pod
+      containers:
+      - name: vote
         image: kodekloud/examplevotingapp_vote:before
+        resources: {}
         ports:
           - containerPort: 80
