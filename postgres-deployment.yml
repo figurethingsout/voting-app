@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vote-deployment
+  name: postgres-deploy
   namespace: vote
 spec:
   selector:
@@ -14,7 +14,12 @@ spec:
         app: demo-voting-app
     spec:
       containers:
-      - name: vote
-        image: kodekloud/examplevotingapp_vote:before
+      - name: postgres
+        image: postgres
         ports:
-          - containerPort: 80
+         - containerPort: 5432
+      env: 
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "postgres"  
