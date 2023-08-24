@@ -13,8 +13,8 @@ spec:
       labels:
         app: demo-voting-app
     spec:
-    containers:
-      - name: redis
-        image: redis
-        ports:
-          - containerPort: 6379
+      containers:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
