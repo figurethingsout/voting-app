@@ -1,3 +1,3 @@
-# This is a voting-app used for learning purpose.
+# This is a simple voting app deployement used for learning purpose.
 
 Sourced by KodeKloud.com
