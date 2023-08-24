@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres-deploy
-  namespace: vote
 spec:
   selector:
     matchLabels:
@@ -23,3 +22,5 @@ spec:
               value: "postgres"
             - name: POSTGRES_PASSWORD
               value: "postgres"
+      nodeSelector:
+          role: worker 

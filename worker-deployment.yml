@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: worker-deployment
-  namespace: vote
 spec:
   selector:
     matchLabels:
@@ -11,8 +10,10 @@ spec:
   template:
     metadata:
       labels:
-        app: demo-voting-app  
-      spec:
-        containers:
+        app: demo-voting-app
+    spec:
+      containers:
         - name: worker
           image: kodekloud/examplevotingapp_worker:v1
+      nodeSelector:
+          role: worker

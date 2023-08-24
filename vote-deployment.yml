@@ -2,7 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote-deployment
-  namespace: vote
+  labels:
+      app: demo-voting-app
 spec:
   selector:
     matchLabels:
@@ -18,3 +19,5 @@ spec:
           image: kodekloud/examplevotingapp_vote:before
           ports:
             - containerPort: 80
+      nodeSelector:
+          role: worker
