@@ -4,23 +4,23 @@ metadata:
   name: vote-deployment
   namespace: vote
   labels:
-    name: voting-app-deploy
+    name: vote-deployment
     app: demo-voting-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: worker-app-pod
+      name: voting-app-pod
       app: demo-voting-app
   template:
     metadata:
-      name: worker-app-pod
+      name: voting-app-pod
       labels:
-        name: worker-app-pod
+        name: voting-app-pod
         app: demo-voting-app
     spec:
     containers:
-      - name: worker-app-pod
+      - name: voting-app-pod
         image: kodekloud/examplevotingapp_vote:before
         ports:
           - containerPort: 80
